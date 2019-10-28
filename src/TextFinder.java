@@ -229,7 +229,7 @@ public class TextFinder extends javax.swing.JFrame {
 
     /**
      * Método principal de la clase.
-     * @param args 
+     * @param args // parámetro de clase principal.
      */
     public static void main(String args[]) {
         try {
