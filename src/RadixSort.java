@@ -3,16 +3,16 @@
  */
 import java.util.*;
 /**
- * Clase para el ordenamiento de los documentos por tamaÒo.
+ * Clase para el ordenamiento de los documentos por tama√±o.
  * @author Mario
  *
  */
 public class RadixSort {
 	/**
-	 * MÈtodo para obtener el m·ximo valor del array.
-	 * @param arr
-	 * @param n
-	 * @return
+	 * M√©todo para obtener el m√°ximo valor del array.
+	 * @param arr // array a ser ordenado.
+	 * @param n // longitud del array.
+	 * @return // retorna el array ordenado.
 	 */
     static int getMax(int arr[], int n)
     {
@@ -23,10 +23,10 @@ public class RadixSort {
         return mx;
     }
     /**
-     * MÈtodo para harcer el ordenamiento de acuerdo con el digito representado por el exponente.
-     * @param arr
-     * @param n
-     * @param exp
+     * M√©todo para harcer el ordenamiento de acuerdo con el digito representado por el exponente.
+     * @param arr // array a ser ordenado.
+     * @param n // longitud del array.
+     * @param exp // exponente para el ordenamiento.
      */
     static void countSort(int arr[], int n, int exp){
     	/**
@@ -43,13 +43,13 @@ public class RadixSort {
             count[ (arr[i]/exp)%10 ]++;
         /**
          * Cambiar el count[i] para que el count[i]
-         * ahora contenga la posiciÛn real de este dÌgito en output[]
+         * ahora contenga la posici√≥n real de este d√≠gito en output[]
          */
         for (i = 1; i < 10; i++)
             count[i] += count[i - 1];
 
         /**
-         * CreaiÛn del array de salida.
+         * Creai√≥n del array de salida.
          */
         for (i = n - 1; i >= 0; i--)
         {
@@ -64,43 +64,23 @@ public class RadixSort {
             arr[i] = output[i];
     }
     /**
-     * MÈtodo principal para ordenar el array de tamaÒo n.
-     * @param arr
-     * @param n
+     * M√©todo principal para ordenar el array de tama√±o n.
+     * @param arr // array a ordenar. 
+     * @param n // longitud del array.
      */
-    static void radixsort(int arr[], int n){
+    static int[] radixsort(int arr[], int n){
     	/**
-    	 * encontrar el m·ximo n˙mero para saber el numero de digitos
+    	 * encontrar el m√°ximo n√∫mero para saber el numero de digitos
     	 */
         int m = getMax(arr, n);
         /**
-         * Hacer un conteo por cada dÌgito.
+         * Hacer un conteo por cada d√≠gito.
          */
         for (int exp = 1; m/exp > 0; exp *= 10)
             countSort(arr, n, exp);
+        /**
+         * Se retorna el array ordenado.
+         */
+        return arr;
     }
-    /**
-     * MÈtodo para imprimir el array.
-     * @param arr
-     * @param n
-     */
-    static void print(int arr[], int n)
-    {
-    	System.out.print("[");
-        for (int i=0; i<n; i++) {
-            System.out.print(arr[i]+", ");
-        }System.out.print("]");
-    }
-    
-    
-    //////////////////////////////////////////////////////////////////////////////////////////
-    /*Driver function to check for above function*/
-    public static void main (String[] args)
-    {
-        int arr[] = {170, 45, 75, 90, 802, 24, 2, 66};
-        int n = arr.length;
-        radixsort(arr, n);
-        print(arr, n);
-    }
-    //////////////////////////////////////////////////////////////////////////////////////////
 }
