@@ -167,7 +167,7 @@ public class Agregar extends javax.swing.JFrame {
 
     /**
      * Método main de la clase.
-     * @param args
+     * @param args // parametro de la clase principal.
      */
     public static void main(String args[]) {
         try {
